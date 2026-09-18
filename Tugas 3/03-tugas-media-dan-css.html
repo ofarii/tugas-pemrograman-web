@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pemutar Media Kuliah Responsif</title>
+  <link rel="stylesheet" href="03-tugas-style.css">
+</head>
+<body>
+
+  <!-- Komponen Kartu Utama dengan BEM & Kelas Status Tambahan (--featured) -->
+  <article class="media-card media-card--featured">
+    
+    <!-- Art Direction dengan elemen <picture> (WebP + Media Query) -->
+    <picture class="media-card__picture">
+      <source media="(min-width: 768px)" srcset="sampul-desktop.webp" type="image/webp">
+      <source media="(max-width: 767px)" srcset="sampul-mobile.webp" type="image/webp">
+      <img src="sampul-default.jpg" alt="Sampul Pemutar Media Kuliah" class="media-card__cover">
+    </picture>
+
+    <div class="media-card__content">
+      <h2 class="media-card__title">Pemrogranam Web: Modul 3</h2>
+      
+      <!-- Teks deskripsi yang akan dipengaruhi spesifisitas CSS -->
+      <p class="media-card__description">
+        Pelajari penggunaan elemen multimedia HTML5 serta teknik styling CSS3 modern dan responsif.
+      </p>
+
+      <!-- Pemutar Video (Poster + 2 Format Cadangan) -->
+      <div class="media-card__video-wrapper">
+        <video class="media-card__video" controls poster="poster-video.jpg">
+          <source src="materi-kuliah.mp4" type="video/mp4">
+          <source src="materi-kuliah.webm" type="video/webm">
+          Browser Anda tidak mendukung elemen video.
+        </video>
+      </div>
+
+      <!-- Pemutar Audio -->
+      <div class="media-card__audio-wrapper">
+        <audio class="media-card__audio" controls>
+          <source src="penjelasan-audio.mp3" type="audio/mpeg">
+          <source src="penjelasan-audio.ogg" type="audio/ogg">
+          Browser Anda tidak mendukung elemen audio.
+        </audio>
+      </div>
+    </div>
+
+  </article>
+
+</body>
+</html>
