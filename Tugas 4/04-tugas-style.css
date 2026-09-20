@@ -1,0 +1,117 @@
+/* Reset Dasar & Body */
+body {
+  background-color: #f8f9fa;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* 1. Header Navigasi dengan Flexbox Murni */
+.custom-header {
+  display: flex;
+  flex-direction: column; /* Ponsel: Tautan merapat vertikal */
+  align-items: stretch;
+  background-color: #1e293b;
+  padding: 1rem 1.5rem;
+  gap: 1rem;
+}
+
+.brand-title {
+  color: #ffffff;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+  text-align: center;
+}
+
+.custom-nav {
+  display: flex;
+  flex-direction: column; /* Ponsel: Tautan merapat vertikal */
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.nav-link-item {
+  color: #cbd5e1;
+  text-decoration: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  text-align: center;
+}
+
+.nav-link-item:hover,
+.nav-link-item.active {
+  background-color: #334155;
+  color: #ffffff;
+}
+
+/* Flexbox Header pada Layar Tablet & Desktop */
+@media (min-width: 768px) {
+  .custom-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .brand-title {
+    text-align: left;
+  }
+
+  .custom-nav {
+    flex-direction: row; /* Tablet/Desktop: Horizontal */
+    width: auto;
+  }
+
+  .nav-link-item {
+    text-align: left;
+  }
+}
+
+/* 2. Layout Utama Kustom CSS Grid */
+
+/* Ponsel (< 768px): Seluruh Layout Bertumpuk 1 Kolom */
+.main-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+/* Tablet (768px - 991px): Kolom Kanan Turun ke Bawah */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .main-layout {
+    grid-template-columns: 200px 1fr;
+  }
+
+  .sidebar-right {
+    grid-column: 1 / -1; /* Kolom kanan merapat turun ke bawah secara melintang */
+  }
+}
+
+/* Layar Lebar (>= 992px): 3 Kolom (Sidebar 200px, Artikel 1fr, Kolom Kanan 220px) */
+@media (min-width: 992px) {
+  .main-layout {
+    grid-template-columns: 200px 1fr 220px;
+  }
+
+  .sidebar-right {
+    grid-column: auto;
+  }
+}
+
+/* 3. Grid Mikro untuk Kartu Artikel (repeat auto-fit & minmax) */
+.article-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+/* Kelas Pembantu */
+.xsmall {
+  font-size: 0.75rem;
+}
+
+.w-fit-content {
+  width: fit-content;
+}
